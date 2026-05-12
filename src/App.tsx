@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring, useMotionValue } from 'motion/react';
 import { CustomCursor } from './components/CustomCursor';
-import { ArrowUpRight, Cpu, Network, Database, Terminal, Code2, ChevronRight, Activity, Layers } from 'lucide-react';
+import { ArrowUpRight, Cpu, Network, Database, Terminal, Code2, ChevronRight, Activity, Layers, Sun, Moon, Globe } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { trackEvent, useAnalyticsTracking } from './lib/analytics';
 import { CookieConsent } from './components/CookieConsent';
 
-const DATA = {
+const DATA_EN = {
   name: 'Bechir Guerriche',
   title: 'Data Intelligence & System Architect',
   email: 'bechirguerriche@gmail.com',
@@ -136,6 +136,197 @@ const DATA = {
   ],
   images: {
     hero: '/hero-pro.png',
+  },
+  ui: {
+    intelActive: 'Intelligence Core Active',
+    projects: 'Projects',
+    arch: 'Architecture',
+    connect: 'Connect',
+    nextLevel: 'Next Level',
+    dataSystems: 'Data Systems.',
+    basedIn: 'Building scalable software architectures, optimizing business intelligence models, and engineering sustainable technical solutions. Based in ',
+    btnResume: 'Download Data Core [CV]',
+    status: 'Status',
+    statusActive: 'Active',
+    masterBi: "Master's BI @ Iset Rades",
+    logProj: '[ DATA.PROJECTS ]',
+    deployments: 'Deployments',
+    yearsExp: 'Years Exp',
+    lblDeploy: 'System Deployments',
+    logHi: '[ SYS.LOG: HIGHLIGHTS ]',
+    lblHi: 'Achievement Logs',
+    record: 'RECORD',
+    logBio: '[ ROOT.BIOGRAPHY ]',
+    logTools: '[ ASSET.DATA_TOOLS ]',
+    logStack: '[ ASSET.CORE_STACK ]',
+    logExp: '[ SYS.LOG: EXPERIENCE ]',
+    logEdu: '[ SYS.LOG: EDUCATION ]',
+    logAct: '[ EXTRA.CURRICULAR ]',
+    endOfTrans: '[ END OF TRANSMISSION ]',
+    initContact: 'Initiate Contact',
+    initProto: 'Initialize Protocol',
+  }
+};
+
+const DATA_FR = {
+  name: 'Bechir Guerriche',
+  title: 'Architecte Système & Data Intelligence',
+  email: 'bechirguerriche@gmail.com',
+  instagram: '@bechirg',
+  linkedin: 'https://linkedin.com/in/guerriche-bechir',
+  city: 'Tunis, Tunisie',
+  years: '3+',
+  intro: "Je suis un esprit curieux motivé par l'innovation, les données et l'impact. Après avoir construit de solides bases en développement Full-Stack, j'ai réalisé que coder n'était que le début. Aujourd'hui, en Master Business Intelligence à l'Iset Rades, j'approfondis ma compréhension de la synergie entre la tech et les données pour optimiser les performances et guider la stratégie.",
+  skills: {
+    core: ['React', 'Node.js', 'Python', 'Java', 'PHP', 'Angular', 'Symfony'],
+    database: ['MongoDB', 'SQL', 'Analyse de Données', 'BI'],
+    tools: ['Git', 'Scrum', 'UML', 'Data Scraping', 'IA OpenAI']
+  },
+  experience: [
+    {
+      role: 'Stagiaire Ingénieur Logiciel',
+      company: 'Access Content Agency',
+      period: 'Jan 2025 – Mai 2025',
+      description: 'Développement de "Colab", une plateforme de collaborations annonceurs-créateurs. Mise en place d\'un système de scoring automatisé avec scraping Instagram et GPT. Stack MERN.'
+    },
+    {
+      role: 'Stagiaire en Perfectionnement',
+      company: 'Soroubat',
+      period: 'Jan 2024 – Fév 2024',
+      description: 'Conception et déploiement d\'une application de gestion immobilière avec des spécifications techniques complètes et tableaux de bord intuitifs.'
+    },
+    {
+      role: 'Coach de Natation',
+      company: 'CNBA',
+      period: 'Nov 2023 – Présent',
+      description: 'Planification et animation de séances d\'entraînement. Accompagnement dans le développement de la discipline et la confiance en soi.'
+    },
+    {
+      role: 'Stagiaire PFE',
+      company: 'Smartitek',
+      period: 'Juin 2023 – Août 2023',
+      description: 'Analyse des besoins, conception de diagrammes UML et déploiement d\'une application de gestion de stock.'
+    }
+  ],
+  education: [
+    {
+      degree: "Master en Business Intelligence",
+      institution: 'Institut Supérieur des Études Technologiques de Radès (Iset Rades)',
+      period: '2025 – Présent'
+    },
+    {
+      degree: "Licence en Technologies de l'Informatique",
+      institution: 'Institut Supérieur des Études Technologiques de Zaghouan',
+      period: '2022 – 2025'
+    },
+    {
+      degree: "Baccalauréat en Informatique",
+      institution: 'Lycée Ben Arous',
+      period: '2021 – 2022'
+    }
+  ],
+  activities: [
+    {
+      title: 'Gagnant Hackathon Mission 3.0',
+      description: '1ère place avec "Chahrity", une solution contre l\'injustice de l\'emploi soutenue par HiiL.'
+    },
+    {
+      title: 'Responsable Finance & Sponsoring',
+      organization: 'Enactus ISET Zaghouan',
+      description: 'Projet Nopaleer : alternative de cuir végétal à base de cactus (90% d\'eau en moins). 3ème place Nationale.'
+    },
+    {
+      title: 'Hack for Heritage',
+      description: 'Participation pour développer des solutions tech préservant le patrimoine culturel.'
+    }
+  ],
+  projects: [
+    {
+      id: 1,
+      name: 'Colab',
+      category: 'Plateforme / IA',
+      description: 'Plateforme de gestion pour collaborateurs et annonceurs. Système de scoring créateur via scraping Instagram et analyse de contenu par IA OpenAI.',
+      image: '/acces-pfe-project.jpg',
+    },
+    {
+      id: 2,
+      name: 'Nopaleer',
+      category: 'Tech Durable',
+      description: 'Alternative végane au cuir, à base de cactus. 90% d\'eau en moins, 86% d\'émissions CO2 en moins. 3ème place nationale Enactus Tunisie 2024.',
+      image: '/nopaleer.png',
+    },
+    {
+      id: 3,
+      name: 'Soroubat Immo',
+      category: 'Web App',
+      description: 'Système personnalisé de gestion immobilière avec tableaux de bord intuitifs pour le suivi de projet et de documents.',
+      image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?q=80&w=1600&auto=format&fit=crop',
+    },
+    {
+      id: 4,
+      name: 'The Parisian',
+      category: 'E-commerce',
+      description: 'Plateforme de gestion pour revendeur de maquillage avec des tableaux de bord en temps réel pour le suivi des ventes et des stocks.',
+      image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600&auto=format&fit=crop',
+    },
+  ],
+  highlights: [
+    {
+      id: 1,
+      title: "Succès Hackathons",
+      description: "Participation à plus de 5 hackathons, dont Hack for Heritage et victoire au Hackathon Mission 3.0.",
+      image: '/hakathon-wining-mission.3.0.jpg'
+    },
+    {
+      id: 2,
+      title: "Passage Radio",
+      description: "Intervention sur Express FM et IFM pour présenter Nopaleer et discuter de l'avenir du cuir vegan durable.",
+      image: '/radio-talk-about-our-club-expressfm.jpg'
+    },
+    {
+      id: 3,
+      title: "Visite d'Ambassade",
+      description: "Honneur d'accueillir l'ambassadrice Anne Guéguen à l'ISET Zaghouan pour présenter l'innovation écologique Nopaleer.",
+      image: '/ambassadrice.png',
+    },
+    {
+      id: 4,
+      title: "Podium National",
+      description: "3ème place à l'Exposition Nationale Enactus Tunisie 2024 avec Nopaleer.",
+      image: '/third-place-in-national-compet-enactus.jpg',
+    }
+  ],
+  images: {
+    hero: '/hero-pro.png',
+  },
+  ui: {
+    intelActive: 'Noyau Actif',
+    projects: 'Projets',
+    arch: 'Architecture',
+    connect: 'Contact',
+    nextLevel: 'Niveau Sup',
+    dataSystems: 'Systèmes Data.',
+    basedIn: 'Création d\'architectures logicielles évolutives, optimisation de modèles BI et ingénierie de solutions tech durables. Basé à ',
+    btnResume: 'Télécharger le CV',
+    status: 'Statut',
+    statusActive: 'Actif',
+    masterBi: "Master BI @ Iset Rades",
+    logProj: '[ DATA.PROJETS ]',
+    deployments: 'Déploiements',
+    yearsExp: 'Années Exp',
+    lblDeploy: 'Déploiements Système',
+    logHi: '[ SYS.LOG: FAITS SAILLANTS ]',
+    lblHi: 'Logs de Réussite',
+    record: 'ARCHIVE',
+    logBio: '[ ROOT.BIOGRAPHIE ]',
+    logTools: '[ ASSET.OUTILS_DATA ]',
+    logStack: '[ ASSET.STACK_CORE ]',
+    logExp: '[ SYS.LOG: EXPÉRIENCE ]',
+    logEdu: '[ SYS.LOG: ÉDUCATION ]',
+    logAct: '[ EXTRA.CURSION ]',
+    endOfTrans: '[ FIN DE TRANSMISSION ]',
+    initContact: 'Initier le Contact',
+    initProto: 'Initialiser le Protocole',
   }
 };
 
@@ -187,7 +378,24 @@ const TiltCard = ({ children, className = "" }: { children: React.ReactNode, cla
 };
 
 
+const contentLocales = {
+  en: DATA_EN,
+  fr: DATA_FR
+};
+
 export default function App() {
+  const [lang, setLang] = useState<'en'|'fr'>('en');
+  const [theme, setTheme] = useState<'dark'|'light'>('dark');
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+  }, [theme]);
+
+  const DATA = contentLocales[lang];
   useAnalyticsTracking();
 
   const { scrollYProgress } = useScroll();
@@ -278,17 +486,27 @@ export default function App() {
           <div className="flex flex-col">
             <span className="text-brand-accent text-[10px] font-mono tracking-widest uppercase mb-1 flex items-center gap-2">
               <span className="w-2 h-2 bg-brand-accent animate-pulse rounded-full shadow-[0_0_10px_var(--color-brand-accent)]" />
-              Intelligence Core Active
+              {DATA.ui.intelActive}
             </span>
             <div className="text-2xl font-bold tracking-tighter uppercase neon-glow flex items-center gap-2">
               <Layers className="text-brand-accent w-6 h-6" />
               {DATA.name}
             </div>
           </div>
-          <nav className="hidden md:flex gap-12 text-xs uppercase font-mono tracking-[0.2em] text-brand-muted font-bold">
-            <a href="#projects" className="hover:text-brand-accent hover:neon-glow transition-all hover-target translate-y-0 hover:-translate-y-1">Projects</a>
-            <a href="#about" className="hover:text-brand-accent hover:neon-glow transition-all hover-target translate-y-0 hover:-translate-y-1">Architecture</a>
-            <a href="#contact" className="text-brand-accent hover:text-white hover:neon-glow transition-all hover-target translate-y-0 hover:-translate-y-1">Connect</a>
+          <nav className="hidden md:flex items-center gap-12 text-xs uppercase font-mono tracking-[0.2em] text-brand-muted font-bold">
+            <a href="#projects" className="hover:text-brand-accent hover:neon-glow transition-all hover-target translate-y-0 hover:-translate-y-1">{DATA.ui.projects}</a>
+            <a href="#about" className="hover:text-brand-accent hover:neon-glow transition-all hover-target translate-y-0 hover:-translate-y-1">{DATA.ui.arch}</a>
+            <a href="#contact" className="text-brand-accent hover:text-white hover:neon-glow transition-all hover-target translate-y-0 hover:-translate-y-1">{DATA.ui.connect}</a>
+            
+            <div className="flex items-center gap-4 ml-4">
+              <button onClick={() => setLang(l => l === 'en' ? 'fr' : 'en')} className="hover:text-brand-accent transition-colors flex items-center gap-2" title="Toggle Language">
+                <Globe size={16} />
+                <span>{lang.toUpperCase()}</span>
+              </button>
+              <button onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')} className="hover:text-brand-accent transition-colors" title="Toggle Theme">
+                {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+            </div>
           </nav>
         </header>
 
@@ -312,12 +530,12 @@ export default function App() {
               <h1 className="text-4xl sm:text-5xl lg:text-[5.5rem] leading-[1.1] font-black uppercase tracking-tighter mb-8 text-white relative z-10 text-glow">
                 <div className="overflow-hidden py-2">
                   <motion.div initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, type: "spring", bounce: 0.4 }}>
-                    Next Level
+                    {DATA.ui.nextLevel}
                   </motion.div>
                 </div>
                 <div className="overflow-hidden py-2">
                   <motion.div initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, type: "spring", bounce: 0.4, delay: 0.1 }} className="flex flex-wrap items-center gap-x-4">
-                    Data <span className="text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-orange-700 select-none">Systems.</span>
+                    Data <span className="text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-orange-700 select-none">{DATA.ui.dataSystems}</span>
                   </motion.div>
                 </div>
               </h1>
@@ -326,7 +544,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }}
                 className="max-w-xl text-lg opacity-90 leading-relaxed font-sans border-l-4 border-brand-accent pl-6 py-2 glass-3d rounded-r-2xl"
               >
-                Building scalable software architectures, optimizing business intelligence models, and engineering sustainable technical solutions. Based in {DATA.city}.
+                {DATA.ui.basedIn} {DATA.city}.
               </motion.p>
               
               <motion.div 
@@ -351,7 +569,7 @@ export default function App() {
                   onClick={() => trackEvent('resume_download', { file_name: 'CV_Bechir_Guerriche.pdf' })}
                   className="px-6 py-3 rounded-xl bg-brand-accent text-brand-bg font-mono text-xs md:text-sm uppercase tracking-widest font-bold hover:shadow-[0_0_20px_rgba(255,106,0,0.6)] hover:bg-brand-accent/90 transition-all flex items-center gap-2 hover-target"
                 >
-                  Download Data Core [CV]
+                  {DATA.ui.btnResume}
                 </a>
               </motion.div>
             </div>
@@ -403,10 +621,10 @@ export default function App() {
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <div className="font-mono text-xs uppercase font-bold text-brand-accent mb-3 tracking-widest flex justify-between items-center bg-brand-accent/10 px-3 py-1 rounded gap-4">
-                      <span>Status</span> 
-                      <span className="flex items-center gap-2"><span className="w-2 h-2 bg-brand-accent animate-ping rounded-full"/><span className="animate-pulse">[ Active ]</span></span>
+                      <span>{DATA.ui.status}</span> 
+                      <span className="flex items-center gap-2"><span className="w-2 h-2 bg-brand-accent animate-ping rounded-full"/><span className="animate-pulse">[ {DATA.ui.statusActive} ]</span></span>
                     </div>
-                    <div className="text-base font-sans font-bold leading-tight">Master's BI @ Iset Rades</div>
+                    <div className="text-base font-sans font-bold leading-tight">{DATA.ui.masterBi}</div>
                   </motion.div>
                </TiltCard>
             </div>
@@ -419,26 +637,25 @@ export default function App() {
           
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
             <div className="relative">
-              <div className="absolute -inset-4 bg-brand-accent/10 blur-xl rounded-full z-0 pointer-events-none" />
-              <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-4 relative z-10">[ DATA.PROJECTS ]</h3>
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter relative z-10 text-glow">System Deployments</h2>
+                     <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-4 relative z-10">{DATA.ui.logProj}</h3>
+              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter relative z-10 text-glow">{DATA.ui.lblDeploy}</h2>
             </div>
             <div className="flex gap-8 glass-3d px-8 py-4 rounded-2xl">
               <div className="text-center">
                 <div className="text-4xl font-bold text-brand-accent drop-shadow-[0_0_15px_rgba(255,106,0,0.8)]">12+</div>
-                <div className="text-xs font-mono uppercase font-bold tracking-widest text-brand-text mt-2">Deployments</div>
+                <div className="text-xs font-mono uppercase font-bold tracking-widest text-brand-text mt-2">{DATA.ui.deployments}</div>
               </div>
               <div className="w-[1px] bg-brand-accent/20" />
               <div className="text-center">
                 <div className="text-4xl font-bold text-brand-accent drop-shadow-[0_0_15px_rgba(255,106,0,0.8)]">0{DATA.years}</div>
-                <div className="text-xs font-mono uppercase font-bold tracking-widest text-brand-text mt-2">Years Exp</div>
+                <div className="text-xs font-mono uppercase font-bold tracking-widest text-brand-text mt-2">{DATA.ui.yearsExp}</div>
               </div>
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 perspective-1000">
             {DATA.projects.map((project, idx) => (
-              <ProjectCard3D key={project.id} project={project} index={idx} />
+              <ProjectCard3D key={project.id} project={project} index={idx} ui={DATA.ui} />
             ))}
           </div>
         </section>
@@ -447,8 +664,8 @@ export default function App() {
         <section className="py-32 relative z-20">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-[1px] bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-50" />
           
-          <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-4 text-center">[ SYS.LOG: HIGHLIGHTS ]</h3>
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-20 text-center text-glow">Achievement Logs</h2>
+          <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-4 text-center">{DATA.ui.logHi}</h3>
+          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-20 text-center text-glow">{DATA.ui.lblHi}</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 perspective-1000">
              {DATA.highlights.map((item, i) => (
@@ -474,7 +691,7 @@ export default function App() {
                     
                     <div className="p-8 flex-1 flex flex-col relative preserve-3d translate-z-20 -mt-12 z-30 pointer-events-none">
                        <div className="text-[10px] font-mono tracking-widest text-brand-accent bg-brand-bg border border-brand-accent/50 px-3 py-1 rounded-full w-fit mb-4 shadow-[0_0_10px_rgba(255,106,0,0.2)]">
-                         [ RECORD: 0{i+1} ]
+                         [ {DATA.ui.record}: 0{i+1} ]
                        </div>
                        <h4 className="text-2xl font-bold uppercase mb-4 group-hover:text-brand-accent transition-colors">{item.title}</h4>
                        <p className="text-sm opacity-80 leading-relaxed font-sans">{item.description}</p>
@@ -494,7 +711,7 @@ export default function App() {
                <TiltCard>
                  <div className="glass-3d p-10 rounded-3xl relative overflow-hidden border border-brand-accent/30 shadow-[0_0_50px_rgba(255,106,0,0.1)] translate-z-20">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/20 blur-3xl rounded-full pointer-events-none" />
-                    <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-8">[ ROOT.BIOGRAPHY ]</h3>
+                    <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-8">{DATA.ui.logBio}</h3>
                     <p className="text-xl leading-relaxed opacity-90 font-sans">
                       {DATA.intro}
                     </p>
@@ -506,7 +723,7 @@ export default function App() {
                <TiltCard>
                   <div className="glass-3d p-8 rounded-3xl border border-brand-accent/20 preserve-3d translate-z-20">
                     <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-6 flex items-center gap-3">
-                      <Database size={18} /> [ ASSET.DATA_TOOLS ]
+                      <Database size={18} /> {DATA.ui.logTools}
                     </h3>
                     <div className="flex flex-wrap gap-4">
                       {[...DATA.skills.database, ...DATA.skills.tools].map((tool, i) => (
@@ -528,7 +745,7 @@ export default function App() {
                <TiltCard>
                   <div className="glass-3d p-8 rounded-3xl border border-brand-accent/20 preserve-3d translate-z-20">
                     <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-6 flex items-center gap-3">
-                      <Code2 size={18} /> [ ASSET.CORE_STACK ]
+                      <Code2 size={18} /> {DATA.ui.logStack}
                     </h3>
                     <div className="flex flex-wrap gap-4">
                       {DATA.skills.core.map((skill, i) => (
@@ -560,7 +777,7 @@ export default function App() {
             <div>
               <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-12 flex items-center gap-4">
                  <span className="w-12 h-[1px] bg-brand-accent"></span>
-                 [ SYS.LOG: EXPERIENCE ]
+                 {DATA.ui.logExp}
               </h3>
               <div className="flex flex-col gap-8 relative border-l-2 border-brand-accent/20 pl-8 ml-4">
                 {DATA.experience.map((exp, i) => (
@@ -594,7 +811,7 @@ export default function App() {
                <div>
                  <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-12 flex items-center gap-4">
                     <span className="w-12 h-[1px] bg-brand-accent"></span>
-                    [ SYS.LOG: EDUCATION ]
+                    {DATA.ui.logEdu}
                  </h3>
                  <div className="flex flex-col gap-6">
                    {DATA.education.map((edu, i) => (
@@ -619,7 +836,7 @@ export default function App() {
                <div>
                  <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-12 flex items-center gap-4">
                     <span className="w-12 h-[1px] bg-brand-accent"></span>
-                    [ EXTRA.CURRICULAR ]
+                    {DATA.ui.logAct}
                  </h3>
                  <div className="flex flex-col gap-6">
                    {DATA.activities.map((act, i) => (
@@ -649,8 +866,8 @@ export default function App() {
           
           <div className="relative">
             <div className="absolute inset-0 bg-brand-accent/20 blur-3xl rounded-full pointer-events-none" />
-            <div className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-6 relative z-10">[ END OF TRANSMISSION ]</div>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 relative z-10 text-glow">Initiate Contact</h2>
+            <div className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-6 relative z-10">{DATA.ui.endOfTrans}</div>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 relative z-10 text-glow">{DATA.ui.initContact}</h2>
             
             <TiltCard className="inline-block relative z-10">
                <a 
@@ -705,7 +922,7 @@ export default function App() {
 }
 
 // Subcomponent for 3D Project Grid Item
-const ProjectCard3D: import('react').FC<{ project: any; index: number }> = ({ project, index }) => {
+const ProjectCard3D: import('react').FC<{ project: any; index: number; ui: any; }> = ({ project, index, ui }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 50, rotateX: 10 }}
@@ -746,7 +963,7 @@ const ProjectCard3D: import('react').FC<{ project: any; index: number }> = ({ pr
             </div>
             
             <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-bold font-mono uppercase text-brand-accent mt-auto group-hover:translate-x-2 md:group-hover:translate-x-4 transition-transform p-3 md:p-4 border border-brand-accent/20 rounded-lg md:rounded-xl bg-brand-accent/5 backdrop-blur-md w-fit">
-              <span>Initialize Protocol</span>
+              <span>{ui.initProto}</span>
               <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-accent text-brand-bg flex items-center justify-center">
                  <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
               </div>

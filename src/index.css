@@ -1,13 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    --color-mode-bg: #050302;
+    --color-mode-text: #f8ece2;
+    --color-mode-accent: #ff6a00;
+    --color-mode-accent-hover: #ff8533;
+    --color-mode-muted: #8b796d;
+    --color-mode-border: #2e1f16;
+  }
+  .light {
+    --color-mode-bg: #faf7f5;
+    --color-mode-text: #1a1512;
+    --color-mode-accent: #e65c00;
+    --color-mode-accent-hover: #cc5200;
+    --color-mode-muted: #8c7b70;
+    --color-mode-border: #e6ddd7;
+  }
+}
+
 @theme {
-  --color-brand-bg: #050302;
-  --color-brand-text: #f8ece2;
-  --color-brand-accent: #ff6a00;
-  --color-brand-accent-hover: #ff8533;
-  --color-brand-muted: #8b796d;
-  --color-brand-border: #2e1f16;
+  --color-brand-bg: var(--color-mode-bg);
+  --color-brand-text: var(--color-mode-text);
+  --color-brand-accent: var(--color-mode-accent);
+  --color-brand-accent-hover: var(--color-mode-accent-hover);
+  --color-brand-muted: var(--color-mode-muted);
+  --color-brand-border: var(--color-mode-border);
 
   --font-serif: "Space Grotesk", sans-serif;
   --font-sans: "Space Grotesk", sans-serif;
