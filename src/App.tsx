@@ -135,7 +135,7 @@ const DATA = {
     }
   ],
   images: {
-    hero: '/hero.JPG',
+    hero: '/hero-pro.png',
   }
 };
 
@@ -369,34 +369,29 @@ export default function App() {
                      <div className="absolute inset-1 bg-brand-bg rounded-3xl z-10 overflow-hidden flex items-center justify-center p-8">
                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,106,0,0.1)_0%,transparent_70%)]" />
                        
-                       {/* Hero Image Container */}
-                       <div className="relative w-full h-full preserve-3d translate-z-50 p-2 md:p-4 rounded-2xl overflow-hidden">
-                          {/* Tech corner brackets */}
-                          <div className="absolute top-2 left-2 w-10 h-10 border-t-2 border-l-2 border-brand-accent translate-z-50 pointer-events-none z-30" />
-                          <div className="absolute top-2 right-2 w-10 h-10 border-t-2 border-r-2 border-brand-accent translate-z-50 pointer-events-none z-30" />
-                          <div className="absolute bottom-2 left-2 w-10 h-10 border-b-2 border-l-2 border-brand-accent translate-z-50 pointer-events-none z-30" />
-                          <div className="absolute bottom-2 right-2 w-10 h-10 border-b-2 border-r-2 border-brand-accent translate-z-50 pointer-events-none z-30" />
-                          
-                          <motion.img 
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1 }}
-                            src={DATA.images.hero} 
-                            alt="Hero Portrait" 
-                            className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl transform translate-z-20 pointer-events-none filter brightness-50 contrast-125 saturate-50"
-                          />
-                          
-                          {/* Scanning line effect */}
+                       {/* Tech Animation Core */}
+                       <div className="relative w-full h-full preserve-3d translate-z-50 p-2 md:p-4 rounded-2xl flex items-center justify-center overflow-hidden">
                           <motion.div 
-                            animate={{ top: ['0%', '100%', '0%'] }}
-                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                            className="absolute left-2 right-2 h-[2px] bg-brand-accent/50 translate-z-50 pointer-events-none blur-[1px] shadow-[0_0_15px_rgba(255,106,0,1)] z-40"
+                            animate={{ rotateX: [0, 360], rotateY: [0, 360] }}
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="w-32 h-32 md:w-48 md:h-48 border border-brand-accent/40 absolute rounded-full preserve-3d"
+                          >
+                             <div className="absolute inset-0 border border-brand-accent/30 rounded-full orbit" />
+                          </motion.div>
+                          <motion.div 
+                            animate={{ rotateX: [360, 0], rotateY: [0, 360] }}
+                            transition={{ duration: 15, direction: "reverse", repeat: Infinity, ease: "linear" }}
+                            className="w-24 h-24 md:w-36 md:h-36 border-2 border-brand-accent absolute rounded-full shadow-[0_0_20px_rgba(255,106,0,0.3)] preserve-3d"
                           />
-                          
-                          {/* Subtle tech overlays */}
-                          <div className="absolute inset-0 bg-black/40 z-10 translate-z-20 pointer-events-none rounded-2xl" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/50 to-transparent z-10 translate-z-20 pointer-events-none rounded-2xl" />
-                          <div className="absolute inset-0 mix-blend-overlay z-10 translate-z-20 pointer-events-none rounded-2xl bg-[linear-gradient(rgba(255,106,0,0.1)_1px,transparent_1px)] bg-[size:100%_4px] opacity-30" />
+                          <motion.div
+                            animate={{ rotateZ: 360 }}
+                            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-0 opacity-20 pointer-events-none"
+                            style={{ backgroundImage: 'radial-gradient(circle at center, rgba(255,106,0,0.5) 0%, transparent 50%)' }}
+                          />
+                          <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-accent rounded-full absolute shadow-[0_0_50px_rgba(255,106,0,0.8)] flex items-center justify-center translate-z-80 group-hover:scale-110 transition-transform duration-500">
+                            <Database className="text-brand-bg w-8 h-8 md:w-10 md:h-10 animate-pulse" />
+                          </div>
                        </div>
                      </div>
                   </div>
