@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://guerriche.dev/sitemap.xml
