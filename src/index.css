@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @layer base {
   :root {
-    --color-mode-bg: #050302;
-    --color-mode-text: #f8ece2;
-    --color-mode-accent: #ff6a00;
-    --color-mode-accent-hover: #ff8533;
-    --color-mode-muted: #8b796d;
-    --color-mode-border: #2e1f16;
+    --color-mode-bg: #0A0A0A;
+    --color-mode-text: #FAFAFA;
+    --color-mode-accent: #2563EB;
+    --color-mode-accent-hover: #1D4ED8;
+    --color-mode-muted: #A1A1AA;
+    --color-mode-border: #27272A;
   }
   .light {
-    --color-mode-bg: #faf7f5;
-    --color-mode-text: #1a1512;
-    --color-mode-accent: #e65c00;
-    --color-mode-accent-hover: #cc5200;
-    --color-mode-muted: #8c7b70;
-    --color-mode-border: #e6ddd7;
+    --color-mode-bg: #FFFFFF;
+    --color-mode-text: #09090B;
+    --color-mode-accent: #2563EB;
+    --color-mode-accent-hover: #1D4ED8;
+    --color-mode-muted: #71717A;
+    --color-mode-border: #E4E4E7;
   }
 }
 
@@ -28,8 +28,8 @@
   --color-brand-muted: var(--color-mode-muted);
   --color-brand-border: var(--color-mode-border);
 
-  --font-serif: "Space Grotesk", sans-serif;
-  --font-sans: "Space Grotesk", sans-serif;
+  --font-serif: "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
@@ -37,13 +37,13 @@
   .bg-grid-texture {
     background-size: 50px 50px;
     background-image: 
-      linear-gradient(to right, rgba(255, 106, 0, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 106, 0, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
   }
   .glass {
-    background: rgba(5, 3, 2, 0.4);
+    background: rgba(10, 10, 10, 0.6);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 106, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   }
   .glass-3d {
@@ -54,13 +54,13 @@
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   }
   .border-ink {
-    border-color: rgba(255, 106, 0, 0.15);
+    border-color: rgba(37, 99, 235, 0.15);
   }
   .neon-glow {
-    text-shadow: 0 0 20px rgba(255, 106, 0, 0.8);
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
   }
   .neon-box {
-    box-shadow: 0 0 20px rgba(255, 106, 0, 0.15), inset 0 0 20px rgba(255, 106, 0, 0.05);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.15), inset 0 0 20px rgba(37, 99, 235, 0.05);
   }
   .preserve-3d {
     transform-style: preserve-3d;
@@ -78,7 +78,7 @@
     transform: translateZ(80px);
   }
   .text-glow {
-    text-shadow: 0 0 40px rgba(255, 106, 0, 0.4);
+    text-shadow: 0 0 40px rgba(37, 99, 235, 0.4);
   }
 }
 

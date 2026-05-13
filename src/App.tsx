@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring, useMotionValue } from 'motion/react';
 import { CustomCursor } from './components/CustomCursor';
-import { ArrowUpRight, Cpu, Network, Database, Terminal, Code2, ChevronRight, Activity, Layers, Sun, Moon, Globe } from 'lucide-react';
+import { ArrowUpRight, Cpu, Network, Database, Terminal, Code2, ChevronRight, Activity, Layers, Sun, Moon, Globe, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { trackEvent, useAnalyticsTracking } from './lib/analytics';
 import { CookieConsent } from './components/CookieConsent';
 
 const DATA_EN = {
   name: 'Bechir Guerriche',
-  title: 'Data Intelligence & System Architect',
+  title: 'Business Intelligence Specialist & Data Architect',
   email: 'bechirguerriche@gmail.com',
   instagram: '@bechirg',
   linkedin: 'https://linkedin.com/in/guerriche-bechir',
+  github: 'https://github.com/becheer11/',
   city: 'Tunis, Tunisia',
   years: '3+',
-  intro: "I am a curious mind driven by innovation, data, and purpose. After building a solid foundation in Full-Stack development, I realized that writing code was just the beginning. Today, I'm pursuing a Master's degree in Business Intelligence at Iset Rades, deepening my understanding of how technology and data come together to tell meaningful stories, optimize performance, and guide strategy. I believe in the power of data with purpose, technology with meaning, and bridging technical expertise with human impact.",
+  intro: "I am a Business Intelligence Specialist with a strong foundation in Full Stack development and AI. After building comprehensive software solutions, I realized that writing code was just the beginning. Today, I dive deep into data architectures, orchestrating robust ETL pipelines, and designing OLAP models that translate complex metrics into actionable insights. I bridge technical expertise with strategic intelligence to optimize performance and tell meaningful stories through data.",
   skills: {
     core: ['React', 'Node.js', 'Python', 'Java', 'PHP', 'Angular', 'Symfony'],
     database: ['MongoDB', 'SQL', 'Data Analytics', 'BI'],
@@ -81,31 +82,73 @@ const DATA_EN = {
   projects: [
     {
       id: 1,
-      name: 'Colab',
-      category: 'Platform / AI',
-      description: 'Analysis and Management Platform for Advertiser-Content Creator Collaborations. Features an automated creator scoring system using public Instagram scraping and OpenAI GPT for content analysis.',
-      image: '/acces-pfe-project.jpg',
+      name: 'Data Warehouse & Cube OLAP',
+      category: 'Business Intelligence',
+      role: 'Data Engineer / BI Specialist',
+      techStack: ['SQL Server 2014', 'Visual Studio 2015', 'SSIS', 'SSAS', 'MDX', 'Star Schema'],
+      description: 'Decision support system based on YouTube statistics for advertisers, creators, and market analysts.',
+      problem: 'A lack of temporal history in snapshot data restricted reliable cohort analysis and continuous trend tracking.',
+      intervention: 'Designed a Star Schema DW and a multidimensional OLAP Cube (SSAS), orchestrating robust ETL workflows while resolving UTF-8 ingestion limits.',
+      outcome: 'Enabled high-level analysis on complex MDX metrics like RPM, Reach Ratio, and Subscriber Life Time Value.',
+      highlights: [
+        "Designed a Star Schema Data Warehouse and a multidimensional OLAP Cube to evaluate global YouTube performance in 2023.",
+        "Configured Incremental Lookup ETL patterns manually for robustness, enabling replayability without key duplication errors.",
+        "Executed a 'Shift Left' strategy directly in SQL (BULK INSERT) to resolve UTF-8 decoding problems originating from SSIS.",
+        "Developed advanced MDX scripts and named queries to fix aggregation failures and build complex strategic metrics (RPM, Life Time Value)."
+      ],
+      image: '/youtube.png',
     },
     {
       id: 2,
-      name: 'Nopaleer',
-      category: 'Sustainable Tech',
-      description: 'Sustainable cactus-based vegan leather alternative. 90% less water usage, 86% reduced carbon emissions. 3rd place at Enactus Tunisia National Exposition 2024.',
-      image: '/nopaleer.png',
+      name: 'Industrial Production ETL',
+      category: 'Data Engineering',
+      role: 'Data Engineer',
+      techStack: ['SQL Server', 'SSIS', 'Change Data Capture (CDC)', 'Data Profiling', 'Master ETL'],
+      description: 'Comprehensive ETL pipeline to analyze industrial production efficiency.',
+      problem: 'Valuable production insights were scattered across disconnected OLTP tables, blinding managers to actual costs and scrap rates.',
+      intervention: 'Engineered a highly optimized ETL process with Microsoft SSIS featuring Change Data Capture (CDC) for incremental updates.',
+      outcome: 'Centralized analytics, automating the tracking of production delays, real costs, and equipment efficiency.',
+      highlights: [
+        "Engineered a comprehensive ETL pipeline with SSIS migrating scattered and complex manufacturing data from OLTP into a structured Data Warehouse.",
+        "Implemented Incremental Change Data Capture (CDC) to efficiently track insertions, updates, and deletions from source databases.",
+        "Constructed a precise Star Schema consisting of specific dimension tables (Date, Location, Product, Transaction Type) to fuel decision-making.",
+        "Orchestrated a Master ETL workflow, including error-routing, orphaned record staging, and automated success/failure notification systems."
+      ],
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop',
     },
     {
       id: 3,
-      name: 'Soroubat Real Estate',
-      category: 'Web App',
-      description: 'Custom Real Estate Management System with intuitive dashboards for project monitoring and document management. Built with MongoDB, React, Node.js.',
-      image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?q=80&w=1600&auto=format&fit=crop',
+      name: 'Colab',
+      category: 'Platform / AI',
+      role: 'Full-Stack Developer & AI Specialist',
+      techStack: ['React', 'Node.js', 'GPT API', 'Instagram Scraping', 'MongoDB'],
+      description: 'Analysis and Management Platform for Advertiser-Content Creator Collaborations.',
+      problem: 'Manual influencer vetting caused a 40% drain on marketing resources across major campaigns.',
+      intervention: 'Engineered an automated creator scoring system using public Instagram scraping and custom OpenAI GPT models for content analysis.',
+      outcome: 'Reduced vetting time by 85% and increased campaign ROI.',
+      highlights: [
+        "Built an integrated platform for seamless advertiser and creator lifecycle management.",
+        "Orchestrated a highly functional web scraping engine to extract deep audience analytics from public Instagram accounts.",
+        "Deployed a custom large-language model evaluator using OpenAI's GPT to score content quality and brand safety dynamically."
+      ],
+      image: '/acces-pfe-project.jpg',
     },
     {
       id: 4,
-      name: 'The Parisian',
-      category: 'E-commerce',
-      description: 'Specialized makeup retailer management platform with real-time interactive sales and stock dashboards.',
-      image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600&auto=format&fit=crop',
+      name: 'Nopaleer',
+      category: 'Sustainable Tech',
+      role: 'Co-Founder & Technical Lead',
+      techStack: ['Clean Technology', 'Sustainable Sourcing', 'Agri-Tech', 'Product Development'],
+      description: 'Sustainable cactus-based vegan leather alternative.',
+      problem: 'Traditional leather production consumed excessive water and generated high carbon emissions.',
+      intervention: 'Developed a cactus-based alternative leveraging sustainable agricultural practices.',
+      outcome: '90% less water usage, 86% reduced carbon emissions. 3rd place National Exposition.',
+      highlights: [
+        "Led the technical research and development of a vegan, cactus-based leather substitute tailored for eco-friendly fashion.",
+        "Achieved drastic resource footprint reductions, requiring 90% less water usage and reducing carbon emissions by 86%.",
+        "Presented and demonstrated the prototype successfully, leading to 3rd place in the Enactus Tunisia National Exposition 2024."
+      ],
+      image: '/nopaleer.png',
     },
   ],
   highlights: [
@@ -170,13 +213,14 @@ const DATA_EN = {
 
 const DATA_FR = {
   name: 'Bechir Guerriche',
-  title: 'Architecte Système & Data Intelligence',
+  title: 'Spécialiste Business Intelligence & Data Architecte',
   email: 'bechirguerriche@gmail.com',
   instagram: '@bechirg',
   linkedin: 'https://linkedin.com/in/guerriche-bechir',
+  github: 'https://github.com/becheer11/',
   city: 'Tunis, Tunisie',
   years: '3+',
-  intro: "Je suis un esprit curieux motivé par l'innovation, les données et l'impact. Après avoir construit de solides bases en développement Full-Stack, j'ai réalisé que coder n'était que le début. Aujourd'hui, en Master Business Intelligence à l'Iset Rades, j'approfondis ma compréhension de la synergie entre la tech et les données pour optimiser les performances et guider la stratégie.",
+  intro: "Je suis un Spécialiste en Business Intelligence doté de solides bases en développement Full Stack et en Intelligence Artificielle. Après avoir conçu des applications complexes, j'ai réalisé que la programmation n'était que le commencement. Actuellement, je me consacre aux architectures de données, au développement de pipelines ETL robustes et à la modélisation OLAP pour révéler des insights stratégiques. Mon objectif est d'optimiser les performances via l'ingénierie des données.",
   skills: {
     core: ['React', 'Node.js', 'Python', 'Java', 'PHP', 'Angular', 'Symfony'],
     database: ['MongoDB', 'SQL', 'Analyse de Données', 'BI'],
@@ -243,31 +287,73 @@ const DATA_FR = {
   projects: [
     {
       id: 1,
-      name: 'Colab',
-      category: 'Plateforme / IA',
-      description: 'Plateforme de gestion pour collaborateurs et annonceurs. Système de scoring créateur via scraping Instagram et analyse de contenu par IA OpenAI.',
-      image: '/acces-pfe-project.jpg',
+      name: 'Data Warehouse & Cube OLAP',
+      category: 'Business Intelligence',
+      role: 'Data Engineer / Spécialiste BI',
+      techStack: ['SQL Server 2014', 'Visual Studio 2015', 'SSIS', 'SSAS', 'MDX', 'Star Schema'],
+      description: 'Système d\'aide à la décision basé sur l\'écosystème YouTube 2023 pour les annonceurs et analystes.',
+      problem: 'L\'absence d\'historique temporel dans les données snapshot empêchait l\'analyse précise des cohortes.',
+      intervention: 'Modélisation en schéma en étoile (Star Schema), création d\'un Cube OLAP Multidimensionnel (SSAS) et pipeline ETL robuste via SQL Server & SSIS.',
+      outcome: 'Calcul direct de KPIs stratégiques complexes (RPM, Ratio de portée, LTV Abonné) grâce à des requêtes MDX.',
+      highlights: [
+        "Conception d'un Data Warehouse en étoile et d'un Cube OLAP multidimensionnel pour évaluer la performance mondiale de YouTube en 2023.",
+        "Configuration manuelle de modèles ETL 'Incremental Lookup' robustes, permettant une fiabilité sans erreur de duplication de clés.",
+        "Exécution d'une stratégie 'Shift Left' en SQL (BULK INSERT) pour résoudre les problèmes de décodage UTF-8 venant de SSIS.",
+        "Développement de scripts MDX avancés et de requêtes nommées pour corriger les échecs d'agrégation et construire des métriques stratégiques (RPM, LTV)."
+      ],
+      image: '/youtube.png',
     },
     {
       id: 2,
-      name: 'Nopaleer',
-      category: 'Tech Durable',
-      description: 'Alternative végane au cuir, à base de cactus. 90% d\'eau en moins, 86% d\'émissions CO2 en moins. 3ème place nationale Enactus Tunisie 2024.',
-      image: '/nopaleer.png',
+      name: 'Projet ETL Production Industrielle',
+      category: 'Data Engineering',
+      role: 'Data Engineer',
+      techStack: ['SQL Server', 'SSIS', 'Change Data Capture (CDC)', 'Data Profiling', 'Master ETL'],
+      description: 'Pipeline ETL complet pour analyser l\'efficacité de la production industrielle.',
+      problem: 'La dispersion des données dans les tables transactionnelles rendait le calcul des retards et des taux de rebut extrêmement coûteux.',
+      intervention: 'Création d\'une architecture ETL structurée, avec zones de Staging et chargement incrémental via Change Data Capture (CDC).',
+      outcome: 'Automatisation complète de l\'analyse de la performance industrielle et de l\'intégration de données fiables.',
+      highlights: [
+        "Ingénierie d'un pipeline ETL complet avec SSIS migrant des données de fabrication disparates depuis l'OLTP vers un Data Warehouse structuré.",
+        "Implémentation du 'Change Data Capture' (CDC) incrémental pour suivre efficacement les insertions, mises à jour et suppressions.",
+        "Construction d'un schéma en étoile précis (dimensions Date, Location, Product, Transaction Type) pour appuyer la prise de décision.",
+        "Orchestration d'un flux Master ETL incluant le routage des erreurs, la gestion des enregistrements orphelins et les notifications automatisées."
+      ],
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop',
     },
     {
       id: 3,
-      name: 'Soroubat Immo',
-      category: 'Web App',
-      description: 'Système personnalisé de gestion immobilière avec tableaux de bord intuitifs pour le suivi de projet et de documents.',
-      image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?q=80&w=1600&auto=format&fit=crop',
+      name: 'Colab',
+      category: 'Plateforme / IA',
+      role: 'Développeur Full-Stack & Spécialiste IA',
+      techStack: ['React', 'Node.js', 'GPT API', 'Instagram Scraping', 'MongoDB'],
+      description: 'Plateforme de gestion pour collaborateurs et annonceurs.',
+      problem: 'La vérification manuelle des influenceurs entraînait une perte de ressources de 40% sur les campagnes majeures.',
+      intervention: 'Développement d\'un système de scoring automatisé avec scraping Instagram et GPT.',
+      outcome: 'Réduction du temps de vérification de 85% et augmentation du ROI des campagnes.',
+      highlights: [
+        "Construction d'une plateforme intégrée pour la gestion complète du cycle de vie des annonceurs et créateurs.",
+        "Conception d'un moteur de web scraping hautement fonctionnel pour extraire l'audience des comptes publics Instagram.",
+        "Déploiement d'un évaluateur basé sur les grands modèles de langage (OpenAI GPT) pour noter dynamiquement la qualité du contenu."
+      ],
+      image: '/acces-pfe-project.jpg',
     },
     {
       id: 4,
-      name: 'The Parisian',
-      category: 'E-commerce',
-      description: 'Plateforme de gestion pour revendeur de maquillage avec des tableaux de bord en temps réel pour le suivi des ventes et des stocks.',
-      image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600&auto=format&fit=crop',
+      name: 'Nopaleer',
+      category: 'Tech Durable',
+      role: 'Cofondateur & Technical Lead',
+      techStack: ['Clean Technology', 'Approvisionnement durable', 'Agri-Tech', 'Développement de produits'],
+      description: 'Alternative végane au cuir, à base de cactus.',
+      problem: 'La production traditionnelle de cuir consommait trop d\'eau et générait d\'importantes émissions de carbone.',
+      intervention: 'Développement d\'une alternative à base de cactus exploitant des pratiques agricoles durables.',
+      outcome: '90% d\'eau en moins, 86% d\'émissions CO2 en moins. 3ème place nationale.',
+      highlights: [
+        "Direction de la R&D technique pour un substitut de cuir vegan à base de cactus conçu pour la mode écoresponsable.",
+        "Réduction drastique de l'empreinte écologique : nécessitant -90% d'eau et réduisant les émissions de carbone de 86%.",
+        "Présentation et démonstration réussie du prototype ayant remporté la 3ème place à l'Exposition Nationale Enactus Tunisie 2024."
+      ],
+      image: '/nopaleer.png',
     },
   ],
   highlights: [
@@ -331,49 +417,13 @@ const DATA_FR = {
 };
 
 const TiltCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-  
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    
-    x.set(xPct);
-    y.set(yPct);
-  };
-  
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
-      }}
-      className={`perspective-1000 w-full rounded-2xl ${className}`}
+    <div
+      className={`group relative overflow-hidden bg-brand-bg/50 border border-brand-accent/10 hover:border-brand-accent/40 transition-colors duration-500 rounded-sm ${className}`}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none transform translate-z-20 mix-blend-overlay"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
       {children}
-    </motion.div>
+    </div>
   );
 };
 
@@ -386,6 +436,7 @@ const contentLocales = {
 export default function App() {
   const [lang, setLang] = useState<'en'|'fr'>('en');
   const [theme, setTheme] = useState<'dark'|'light'>('dark');
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   useEffect(() => {
     if (theme === 'light') {
@@ -408,7 +459,7 @@ export default function App() {
       <Helmet>
         <title>{DATA.name} | {DATA.title}</title>
         <meta name="description" content={DATA.intro} />
-        <meta name="keywords" content="Portfolio, Software Engineer, Business Intelligence, Data Analytics, React, Node.js" />
+        <meta name="keywords" content="Portfolio, Software Engineer, Business Intelligence, BI Developer, IA, AI, Entrepreneurship, Coach, Developer, Data Analytics, React, Node.js" />
         <meta property="og:title" content={`${DATA.name} | ${DATA.title}`} />
         <meta property="og:description" content={DATA.intro} />
         <meta property="og:type" content="website" />
@@ -427,16 +478,22 @@ export default function App() {
             "url": "https://guerriche.dev",
             "sameAs": [
               DATA.linkedin,
+              DATA.github,
               `https://instagram.com/${DATA.instagram.replace('@', '')}`
             ],
             "knowsAbout": [
               "Business Intelligence",
+              "BI Developer",
               "System Architecture",
               "Data Analytics",
               "Software Engineering",
+              "Artificial Intelligence",
+              "IA",
+              "Entrepreneurship",
+              "Coach",
               "React",
               "Node.js",
-              "Artificial Intelligence"
+              "ETL Processing"
             ]
           })}
         </script>
@@ -457,27 +514,22 @@ export default function App() {
 
       <CustomCursor />
       
-      {/* 3D Deep Space Background Grid */}
-      <div className="fixed inset-0 z-0 pointer-events-none perspective-1000 opacity-30">
-        <motion.div 
-          animate={{ rotateX: [60, 60], translateY: [0, 50] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-[-100%] border-brand-accent/10 bg-[linear-gradient(rgba(255,106,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(255,106,0,0.1)_2px,transparent_2px)] bg-[size:100px_100px]"
-          style={{ transformOrigin: 'top center' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/80 to-transparent" />
+      {/* Space Background Grid */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-50">
+        <div className="absolute inset-0 bg-grid-texture" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/90 to-transparent" />
       </div>
 
-      {/* Cyber glowing orb background */}
+      {/* Subtle ambient light */}
       <motion.div 
-        className="fixed top-[-20%] left-[20%] w-[60%] h-[60%] bg-brand-accent/10 rounded-full blur-[150px] pointer-events-none z-0 mix-blend-screen"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3], x: [0, 50, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="fixed top-[-20%] left-[20%] w-[60%] h-[60%] bg-brand-accent/5 rounded-full blur-[150px] pointer-events-none z-0 mix-blend-screen"
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div 
-        className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none z-0 mix-blend-screen"
-        animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none z-0 mix-blend-screen"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
       <main className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-8 flex flex-col flex-1">
@@ -488,7 +540,7 @@ export default function App() {
               <span className="w-2 h-2 bg-brand-accent animate-pulse rounded-full shadow-[0_0_10px_var(--color-brand-accent)]" />
               {DATA.ui.intelActive}
             </span>
-            <div className="text-2xl font-bold tracking-tighter uppercase neon-glow flex items-center gap-2">
+            <div className="text-2xl font-bold tracking-tighter uppercase flex items-center gap-2">
               <Layers className="text-brand-accent w-6 h-6" />
               {DATA.name}
             </div>
@@ -527,7 +579,7 @@ export default function App() {
                 <span className="leading-relaxed">{DATA.title}</span>
               </motion.div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-[5.5rem] leading-[1.1] font-black uppercase tracking-tighter mb-8 text-white relative z-10 text-glow">
+              <h1 className="text-4xl sm:text-5xl lg:text-[5.5rem] leading-[1.1] font-black uppercase tracking-tighter mb-8 text-brand-text relative z-10">
                 <div className="overflow-hidden py-2">
                   <motion.div initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, type: "spring", bounce: 0.4 }}>
                     {DATA.ui.nextLevel}
@@ -535,25 +587,25 @@ export default function App() {
                 </div>
                 <div className="overflow-hidden py-2">
                   <motion.div initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, type: "spring", bounce: 0.4, delay: 0.1 }} className="flex flex-wrap items-center gap-x-4">
-                    Data <span className="text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-orange-700 select-none">{DATA.ui.dataSystems}</span>
+                    Data <span className="text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-brand-accent-hover select-none">{DATA.ui.dataSystems}</span>
                   </motion.div>
                 </div>
               </h1>
               
               <motion.p 
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }}
-                className="max-w-xl text-lg opacity-90 leading-relaxed font-sans border-l-4 border-brand-accent pl-6 py-2 glass-3d rounded-r-2xl"
+                className="max-w-xl text-lg opacity-90 leading-relaxed font-sans border-l-2 border-brand-accent pl-6 py-2 bg-brand-bg/50 backdrop-blur-md rounded-r-md"
               >
                 {DATA.ui.basedIn} {DATA.city}.
               </motion.p>
               
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.6 }}
-                className="mt-12 flex gap-4 flex-wrap preserve-3d translate-z-20"
+                className="mt-12 flex gap-4 flex-wrap"
               >
                 {["System Architecture", "BI Models", "Full-Stack"].map((tag, i) => (
-                  <div key={i} className="glass-3d px-6 py-3 text-xs font-bold font-mono uppercase tracking-widest text-brand-accent flex items-center gap-2 rounded-xl border border-brand-accent/20 hover:border-brand-accent hover:bg-brand-accent/10 transition-all hover:scale-105 hover:-translate-y-1 shadow-lg">
-                    <Activity size={14} />
+                  <div key={i} className="px-6 py-3 text-[10px] font-bold font-mono uppercase tracking-widest text-brand-muted flex items-center gap-2 border border-brand-accent/20 rounded-sm">
+                    <Activity size={12} className="text-brand-accent" />
                     {tag}
                   </div>
                 ))}
@@ -561,72 +613,53 @@ export default function App() {
               
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }}
-                className="mt-8 flex gap-4 preserve-3d translate-z-20"
+                className="mt-8 flex gap-4"
               >
                 <a 
                   href="/CV_Bechir_Guerriche.pdf" 
                   download="CV_Bechir_Guerriche.pdf"
                   onClick={() => trackEvent('resume_download', { file_name: 'CV_Bechir_Guerriche.pdf' })}
-                  className="px-6 py-3 rounded-xl bg-brand-accent text-brand-bg font-mono text-xs md:text-sm uppercase tracking-widest font-bold hover:shadow-[0_0_20px_rgba(255,106,0,0.6)] hover:bg-brand-accent/90 transition-all flex items-center gap-2 hover-target"
+                  className="px-6 py-3 bg-brand-accent text-brand-bg font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold hover:bg-brand-accent-hover transition-colors flex items-center gap-2 rounded-sm"
                 >
                   {DATA.ui.btnResume}
                 </a>
               </motion.div>
             </div>
 
-            {/* 3D Floating Elements */}
-            <div className="md:col-span-5 relative h-[350px] md:h-[450px] preserve-3d">
-               <TiltCard className="absolute inset-0 group h-full w-full">
-                  <div className="w-full h-full glass-3d rounded-3xl overflow-hidden relative border border-brand-accent/30 shadow-[0_20px_50px_rgba(255,106,0,0.15)] flex items-center justify-center">
-                     {/* Inner glowing core */}
-                     <motion.div 
-                       animate={{ rotate: 360 }}
-                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                       className="absolute w-[150%] h-[150%] bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(255,106,0,0.4)_360deg)]"
-                     />
-                     <div className="absolute inset-1 bg-brand-bg rounded-3xl z-10 overflow-hidden flex items-center justify-center p-8">
-                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,106,0,0.1)_0%,transparent_70%)]" />
-                       
-                       {/* Tech Animation Core */}
-                       <div className="relative w-full h-full preserve-3d translate-z-50 p-2 md:p-4 rounded-2xl flex items-center justify-center overflow-hidden">
-                          <motion.div 
-                            animate={{ rotateX: [0, 360], rotateY: [0, 360] }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="w-32 h-32 md:w-48 md:h-48 border border-brand-accent/40 absolute rounded-full preserve-3d"
-                          >
-                             <div className="absolute inset-0 border border-brand-accent/30 rounded-full orbit" />
-                          </motion.div>
-                          <motion.div 
-                            animate={{ rotateX: [360, 0], rotateY: [0, 360] }}
-                            transition={{ duration: 15, direction: "reverse", repeat: Infinity, ease: "linear" }}
-                            className="w-24 h-24 md:w-36 md:h-36 border-2 border-brand-accent absolute rounded-full shadow-[0_0_20px_rgba(255,106,0,0.3)] preserve-3d"
-                          />
-                          <motion.div
-                            animate={{ rotateZ: 360 }}
-                            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 opacity-20 pointer-events-none"
-                            style={{ backgroundImage: 'radial-gradient(circle at center, rgba(255,106,0,0.5) 0%, transparent 50%)' }}
-                          />
-                          <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-accent rounded-full absolute shadow-[0_0_50px_rgba(255,106,0,0.8)] flex items-center justify-center translate-z-80 group-hover:scale-110 transition-transform duration-500">
-                            <Database className="text-brand-bg w-8 h-8 md:w-10 md:h-10 animate-pulse" />
-                          </div>
-                       </div>
-                     </div>
+            {/* Data-Driven Minimalist Visual */}
+            <div className="md:col-span-5 relative flex justify-end h-full min-h-[400px]">
+               <div className="w-full max-w-sm aspect-square border-l border-b border-brand-accent/20 relative p-8 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <div className="w-8 h-8 border-t border-l border-brand-accent/60" />
+                    <div className="text-[10px] uppercase font-mono tracking-widest text-brand-muted">Vol. 1</div>
                   </div>
                   
-                  {/* Floating badge */}
-                  <motion.div 
-                    className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 md:-bottom-10 md:-left-10 glass-3d p-4 md:p-6 z-50 rounded-2xl border border-brand-accent/50 shadow-2xl translate-z-80 w-[90%] sm:w-auto"
-                    animate={{ y: [-10, 10, -10] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <div className="font-mono text-xs uppercase font-bold text-brand-accent mb-3 tracking-widest flex justify-between items-center bg-brand-accent/10 px-3 py-1 rounded gap-4">
-                      <span>{DATA.ui.status}</span> 
-                      <span className="flex items-center gap-2"><span className="w-2 h-2 bg-brand-accent animate-ping rounded-full"/><span className="animate-pulse">[ {DATA.ui.statusActive} ]</span></span>
+                  <div className="space-y-6 my-auto">
+                    <div>
+                      <div className="flex justify-between text-[10px] font-mono tracking-widest uppercase mb-2"><span>System Architecture</span><span>98%</span></div>
+                      <div className="h-[2px] w-full bg-brand-accent/10 overflow-hidden relative">
+                         <motion.div initial={{ width: 0 }} animate={{ width: '98%' }} transition={{ duration: 1.5, delay: 0.5 }} className="absolute inset-y-0 left-0 bg-brand-accent" />
+                      </div>
                     </div>
-                    <div className="text-base font-sans font-bold leading-tight">{DATA.ui.masterBi}</div>
-                  </motion.div>
-               </TiltCard>
+                    <div>
+                      <div className="flex justify-between text-[10px] font-mono tracking-widest uppercase mb-2"><span>Data Intelligence</span><span>95%</span></div>
+                      <div className="h-[2px] w-full bg-brand-accent/10 overflow-hidden relative">
+                         <motion.div initial={{ width: 0 }} animate={{ width: '95%' }} transition={{ duration: 1.5, delay: 0.7 }} className="absolute inset-y-0 left-0 bg-brand-accent" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-end">
+                    <div className="text-5xl font-light tracking-tighter text-brand-accent">0{DATA.years}<span className="text-[10px] tracking-widest uppercase font-mono text-brand-muted block mt-2">Years Exp</span></div>
+                    <div className="text-right">
+                       <div className="flex items-center gap-2 justify-end mb-1 text-brand-accent">
+                         <span className="w-2 h-2 bg-brand-accent rounded-full animate-pulse" />
+                         <span className="text-[10px] uppercase font-mono tracking-widest font-bold">{DATA.ui.statusActive}</span>
+                       </div>
+                       <div className="text-[10px] uppercase tracking-widest opacity-70 font-mono">{DATA.ui.masterBi}</div>
+                    </div>
+                  </div>
+               </div>
             </div>
           </div>
         </motion.section>
@@ -638,24 +671,24 @@ export default function App() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
             <div className="relative">
                      <h3 className="text-sm uppercase font-mono tracking-[0.3em] font-bold text-brand-accent mb-4 relative z-10">{DATA.ui.logProj}</h3>
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter relative z-10 text-glow">{DATA.ui.lblDeploy}</h2>
+              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter relative z-10">{DATA.ui.lblDeploy}</h2>
             </div>
-            <div className="flex gap-8 glass-3d px-8 py-4 rounded-2xl">
+            <div className="flex gap-8 bg-brand-bg/50 border border-brand-accent/10 backdrop-blur-md px-8 py-4 rounded-sm">
               <div className="text-center">
-                <div className="text-4xl font-bold text-brand-accent drop-shadow-[0_0_15px_rgba(255,106,0,0.8)]">12+</div>
+                <div className="text-4xl font-bold text-brand-accent">12+</div>
                 <div className="text-xs font-mono uppercase font-bold tracking-widest text-brand-text mt-2">{DATA.ui.deployments}</div>
               </div>
               <div className="w-[1px] bg-brand-accent/20" />
               <div className="text-center">
-                <div className="text-4xl font-bold text-brand-accent drop-shadow-[0_0_15px_rgba(255,106,0,0.8)]">0{DATA.years}</div>
+                <div className="text-4xl font-bold text-brand-accent">0{DATA.years}</div>
                 <div className="text-xs font-mono uppercase font-bold tracking-widest text-brand-text mt-2">{DATA.ui.yearsExp}</div>
               </div>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 perspective-1000">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
             {DATA.projects.map((project, idx) => (
-              <ProjectCard3D key={project.id} project={project} index={idx} ui={DATA.ui} />
+              <ProjectCard key={project.id} project={project} index={idx} ui={DATA.ui} onClick={setSelectedProject} />
             ))}
           </div>
         </section>
@@ -912,65 +945,206 @@ export default function App() {
                 <span className="font-bold tracking-widest font-mono uppercase text-sm">Instagram</span>
               </a>
             </TiltCard>
+
+            <TiltCard>
+              <a 
+                href={DATA.github} 
+                target="_blank" 
+                rel="noreferrer" 
+                onClick={() => trackEvent('social_click', { platform: 'GitHub' })}
+                className="flex items-center gap-4 glass-3d px-8 py-4 rounded-xl hover:bg-brand-accent/10 transition-colors hover:border-brand-accent border border-transparent group hover-target w-full sm:w-auto relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-brand-accent/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="w-10 h-10 rounded-lg bg-brand-bg border border-brand-accent/30 flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(255,106,0,0.5)] transition-shadow">
+                  <Terminal className="text-brand-accent" size={18} />
+                </div>
+                <span className="font-bold tracking-widest font-mono uppercase text-sm">GitHub</span>
+              </a>
+            </TiltCard>
           </div>
         </footer>
       </main>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        )}
+      </AnimatePresence>
 
       <CookieConsent />
     </div>
   );
 }
 
-// Subcomponent for 3D Project Grid Item
-const ProjectCard3D: import('react').FC<{ project: any; index: number; ui: any; }> = ({ project, index, ui }) => {
+// Subcomponent for Project Modal
+const ProjectModal: import('react').FC<{ project: any; onClose: () => void }> = ({ project, onClose }) => {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 50, rotateX: 10 }}
-      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, delay: index * 0.1, type: "spring", bounce: 0.3 }}
-      className="preserve-3d"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-12 bg-black/60 backdrop-blur-md"
+      onClick={onClose}
     >
-      <TiltCard className="h-full group hover-target cursor-pointer" onClick={() => trackEvent('project_view', { project_name: project.name })}>
-        <div className="glass-3d flex flex-col rounded-2xl md:rounded-3xl overflow-hidden h-full border border-brand-accent/20 preserve-3d relative">
-          <div className="relative h-48 sm:h-64 md:h-80 overflow-hidden bg-black p-4 md:p-6 preserve-3d md:translate-z-20 border-b border-brand-accent/20">
-            <div className="absolute inset-0 bg-brand-accent/20 mix-blend-color z-10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
-            <img 
-              src={project.image} 
-              alt={project.name} 
-              className="w-full h-full object-contain filter grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110 md:group-hover:translate-z-20 relative z-0 pointer-events-none"
-            />
-            {/* Tech Corner Specs */}
-            <div className="absolute top-4 md:top-6 left-4 md:left-6 z-20 glass-3d px-2 md:px-3 py-1 md:py-1.5 rounded bg-brand-bg text-[8px] md:text-[10px] font-mono font-bold uppercase text-brand-accent border border-brand-accent/30 pointer-events-none md:translate-z-20 shadow-lg">
-              [ ID: 0{index + 1} ]
-            </div>
-            
-            {/* Floating Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/40 to-transparent z-10 md:translate-z-10 pointer-events-none" />
-          </div>
-          
-          <div className="p-6 md:p-10 flex-1 flex flex-col justify-between preserve-3d md:translate-z-50 relative z-20 -mt-10 md:-mt-16 bg-gradient-to-t from-brand-bg/95 to-transparent pt-10 md:pt-12 pointer-events-none">
-            <div>
-              <div className="text-[10px] md:text-xs font-bold font-mono tracking-widest text-brand-bg mb-3 md:mb-4 flex justify-between items-center bg-brand-accent px-3 py-1 md:py-1.5 rounded-full w-fit shadow-[0_0_15px_rgba(255,106,0,0.6)]">
+      <motion.div
+        initial={{ opacity: 0, y: 50, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 20, scale: 0.95 }}
+        transition={{ duration: 0.4, type: 'spring', bounce: 0.2 }}
+        className="w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-brand-bg relative flex flex-col border border-brand-accent/20 rounded-md shadow-2xl"
+        onClick={e => e.stopPropagation()}
+      >
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 z-50 p-2 hover:bg-brand-accent/20 rounded-full transition-colors text-brand-accent hover-target"
+        >
+          <X size={24} />
+        </button>
+
+        <div className="relative h-64 md:h-80 w-full overflow-hidden border-b border-brand-accent/20 shrink-0">
+          <img 
+            src={project.image} 
+            alt={project.name} 
+            className="w-full h-full object-cover filter grayscale-[40%] hover:grayscale-0 transition-all duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/60 to-transparent pointer-events-none" />
+          <div className="absolute bottom-6 left-6 md:left-12 max-w-3xl">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <div className="text-[10px] uppercase font-mono tracking-widest text-brand-bg bg-brand-accent px-3 py-1 rounded-sm w-fit font-bold shadow-md">
                 {project.category}
               </div>
-              <h3 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-3 md:mb-4 group-hover:text-glow transition-all">
-                {project.name}
-              </h3>
-              <p className="font-sans opacity-80 text-sm md:text-base leading-relaxed mb-6 md:mb-8 block font-medium">
-                {project.description}
-              </p>
-            </div>
-            
-            <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-bold font-mono uppercase text-brand-accent mt-auto group-hover:translate-x-2 md:group-hover:translate-x-4 transition-transform p-3 md:p-4 border border-brand-accent/20 rounded-lg md:rounded-xl bg-brand-accent/5 backdrop-blur-md w-fit">
-              <span>{ui.initProto}</span>
-              <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-accent text-brand-bg flex items-center justify-center">
-                 <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
+              <div className="text-[10px] uppercase font-mono tracking-widest text-brand-accent border border-brand-accent/40 bg-brand-bg/50 backdrop-blur-md px-3 py-1 rounded-sm w-fit">
+                {project.role}
               </div>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-brand-text drop-shadow-md mb-2">
+              {project.name}
+            </h2>
+            <p className="text-sm md:text-base font-sans opacity-90 leading-relaxed text-brand-text max-w-2xl font-medium">
+              {project.description}
+            </p>
+          </div>
+        </div>
+
+        <div className="p-6 md:p-12 flex flex-col gap-10 flex-1">
+          {/* Tech Stack */}
+          {project.techStack && (
+            <div>
+              <h3 className="text-xs uppercase font-mono tracking-widest text-brand-accent/70 mb-4 font-bold">Tech Stack & Tools</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.map((tech: string, i: number) => (
+                  <span key={i} className="text-[10px] font-mono tracking-widest uppercase border border-brand-accent/20 px-3 py-1.5 rounded-sm bg-brand-accent/5 text-brand-muted">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Professional Highlights (CV Style) */}
+          {project.highlights && (
+             <div className="mb-4">
+                <h3 className="text-xs uppercase font-mono tracking-widest text-brand-accent/70 mb-6 font-bold">Key Achievements</h3>
+                <ul className="space-y-4 font-sans text-sm md:text-base opacity-90 leading-relaxed list-none">
+                  {project.highlights.map((highlight: string, i: number) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 bg-brand-accent rounded-sm mt-2 shrink-0 pointer-events-none" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+             </div>
+          )}
+
+          {/* The Campaign Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-brand-accent/10">
+            <div className="bg-brand-bg/40 border border-brand-accent/10 p-6 rounded-sm">
+              <div className="flex items-center gap-2 mb-4 border-b border-brand-accent/10 pb-3">
+                <div className="w-2 h-2 bg-red-500/80 rounded-full" />
+                <div className="text-[10px] uppercase font-mono tracking-widest text-brand-muted font-bold">Problem</div>
+              </div>
+              <p className="text-sm font-sans opacity-80 leading-relaxed">{project.problem}</p>
+            </div>
+            <div className="bg-brand-bg/40 border border-brand-accent/10 p-6 rounded-sm">
+              <div className="flex items-center gap-2 mb-4 border-b border-brand-accent/10 pb-3">
+                <div className="w-2 h-2 bg-yellow-500/80 rounded-full" />
+                <div className="text-[10px] uppercase font-mono tracking-widest text-brand-muted font-bold">Intervention</div>
+              </div>
+              <p className="text-sm font-sans opacity-80 leading-relaxed">{project.intervention}</p>
+            </div>
+            <div className="bg-brand-bg/40 border border-brand-accent/20 p-6 rounded-sm relative overflow-hidden">
+              <div className="absolute inset-0 bg-brand-accent/5 pointer-events-none" />
+              <div className="flex items-center gap-2 mb-4 border-b border-brand-accent/20 pb-3 relative z-10">
+                <div className="w-2 h-2 bg-green-500/80 rounded-full animate-pulse" />
+                <div className="text-[10px] uppercase font-mono tracking-widest text-brand-accent font-bold">Outcome</div>
+              </div>
+              <p className="text-sm font-sans text-brand-text font-medium leading-relaxed relative z-10">{project.outcome}</p>
             </div>
           </div>
         </div>
-      </TiltCard>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+// Subcomponent for Clean Corporate Project Card
+const ProjectCard: import('react').FC<{ project: any; index: number; ui: any; onClick?: (project: any) => void; }> = ({ project, index, ui, onClick }) => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group hover-target cursor-pointer flex flex-col"
+      onClick={() => {
+        trackEvent('project_view', { project_name: project.name });
+        if (onClick) onClick(project);
+      }}
+    >
+      <div className="flex flex-col overflow-hidden h-full">
+        {/* Minimalist Image Container */}
+        <div className="relative h-64 md:h-80 w-full overflow-hidden mb-8 border border-brand-accent/10 rounded-sm">
+          <div className="absolute inset-0 bg-brand-bg/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+          <img 
+            src={project.image} 
+            alt={project.name} 
+            className="w-full h-full object-cover filter grayscale-[100%] group-hover:grayscale-[20%] transition-all duration-700 transform group-hover:scale-[1.02]"
+          />
+          <div className="absolute top-4 left-4 z-20 px-3 py-1 bg-brand-bg/90 border border-brand-accent/20 text-[10px] font-mono font-bold uppercase text-brand-accent backdrop-blur-md">
+            ID: 0{index + 1}
+          </div>
+        </div>
+        
+        {/* Content Segment */}
+        <div className="flex-1 flex flex-col">
+          <div className="text-[10px] uppercase font-mono tracking-widest text-brand-muted mb-2 font-bold">
+            {project.category}
+          </div>
+          <h3 className="text-3xl font-bold uppercase tracking-tight mb-4 group-hover:text-brand-accent transition-colors">
+            {project.name}
+          </h3>
+          <p className="font-sans opacity-80 text-base leading-relaxed mb-8 block">
+            {project.description}
+          </p>
+
+          {/* Rule of Three Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-auto border-t border-brand-accent/10 pt-6">
+            <div>
+              <div className="text-[9px] uppercase font-mono tracking-widest text-brand-accent/70 mb-2">Problem Statement</div>
+              <p className="text-xs font-sans opacity-80 leading-relaxed">{project.problem}</p>
+            </div>
+            <div>
+              <div className="text-[9px] uppercase font-mono tracking-widest text-brand-accent/70 mb-2">Strategic Intervention</div>
+              <p className="text-xs font-sans opacity-80 leading-relaxed">{project.intervention}</p>
+            </div>
+            <div>
+              <div className="text-[9px] uppercase font-mono tracking-widest text-brand-accent/70 mb-2">Measurable Outcome</div>
+              <p className="text-xs font-sans text-brand-accent font-medium leading-relaxed">{project.outcome}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }
