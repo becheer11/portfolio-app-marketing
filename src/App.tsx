@@ -150,6 +150,40 @@ const DATA_EN = {
       ],
       image: '/nopaleer.png',
     },
+    {
+      id: 5,
+      name: 'Soroubat Real Estate',
+      category: 'Web App',
+      role: 'Full-Stack Developer',
+      techStack: ['React', 'Node.js', 'MongoDB', 'Express', 'Dashboards'],
+      description: 'Custom Real Estate Management System with intuitive dashboards.',
+      problem: 'Fragmented project monitoring and document management led to operational delays.',
+      intervention: 'Architected a centralized management system with interactive dashboards using React and Node.js.',
+      outcome: 'Streamlined operational workflow and reduced document retrieval time by 60%.',
+      highlights: [
+        "Designed and implemented a full-stack real estate property and document management system.",
+        "Built interactive dashboards for real-time monitoring of project status, tasks, and budgets.",
+        "Optimized backend queries in MongoDB to support fast data retrieval for complex reporting."
+      ],
+      image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?q=80&w=1600&auto=format&fit=crop',
+    },
+    {
+      id: 6,
+      name: 'The Parisian',
+      category: 'E-commerce',
+      role: 'Full-Stack Developer',
+      techStack: ['React', 'Node.js', 'E-commerce', 'Inventory Management'],
+      description: 'Specialized makeup retailer management platform with real-time interactive sales dashboards.',
+      problem: 'Inaccurate stock tracking and delayed sales reporting affected inventory decisions.',
+      intervention: 'Built a real-time tracking interface integrating interactive sales and stock dashboards.',
+      outcome: 'Achieved 99.9% inventory accuracy and enabled instant sales reporting.',
+      highlights: [
+        "Developed a tailored inventory and sales management platform for a makeup retail business.",
+        "Integrated real-time sales dashboards to track daily revenue and stock depletion.",
+        "Implemented an automated alert system for low-stock products to prevent inventory shortages."
+      ],
+      image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600&auto=format&fit=crop',
+    },
   ],
   highlights: [
     {
@@ -175,6 +209,12 @@ const DATA_EN = {
       title: "National Podium",
       description: "Secured 3rd place at the Enactus Tunisia National Exposition 2024 presenting Nopaleer, our sustainable vegan leather.",
       image: '/third-place-in-national-compet-enactus.jpg',
+    },
+    {
+      id: 5,
+      title: "Swimming Coaching & Team Leadership",
+      description: "Passionate swimming coach dedicated to fostering discipline, technique, and teamwork. Guiding athletes to push their boundaries and achieve competitive excellence.",
+      image: '/swimmin-coaching.jpg',
     }
   ],
   images: {
@@ -355,6 +395,40 @@ const DATA_FR = {
       ],
       image: '/nopaleer.png',
     },
+    {
+      id: 5,
+      name: 'Soroubat Immo',
+      category: 'Web App',
+      role: 'Développeur Full-Stack',
+      techStack: ['React', 'Node.js', 'MongoDB', 'Express', 'Dashboards'],
+      description: 'Système personnalisé de gestion immobilière avec tableaux de bord.',
+      problem: 'Le suivi de projet et la gestion documentaire fragmentés entraînaient des retards opérationnels.',
+      intervention: 'Architecture d\'un système centralisé avec tableaux de bord interactifs (React, Node.js).',
+      outcome: 'Fluidification du flux opérationnel et réduction du temps de recherche de documents de 60%.',
+      highlights: [
+        "Conception et implémentation d'un système full-stack de gestion des propriétés immobilières et des documents.",
+        "Création de tableaux de bord interactifs pour le suivi en temps réel de l'état des projets, des tâches et des budgets.",
+        "Optimisation des requêtes backend dans MongoDB pour accélérer la récupération des données de reporting complexes."
+      ],
+      image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?q=80&w=1600&auto=format&fit=crop',
+    },
+    {
+      id: 6,
+      name: 'The Parisian',
+      category: 'E-commerce',
+      role: 'Développeur Full-Stack',
+      techStack: ['React', 'Node.js', 'E-commerce', 'Gestion des Stocks'],
+      description: 'Plateforme de gestion pour revendeur de maquillage avec des tableaux de bord en temps réel.',
+      problem: 'Un suivi inexact des stocks et des rapports de ventes retardés affectaient les décisions d\'inventaire.',
+      intervention: 'Création d\'une interface de suivi en temps réel intégrant des tableaux de bord interactifs.',
+      outcome: 'Précision des stocks de 99,9% et possibilité de reporting instantané.',
+      highlights: [
+        "Développement d'une plateforme sur-mesure de gestion des stocks et des ventes pour une entreprise de vente de maquillage.",
+        "Intégration de tableaux de bord de ventes en temps réel pour suivre les revenus quotidiens et l'épuisement des stocks.",
+        "Mise en place d'un système d'alerte automatisé pour les produits en rupture de stock afin d'éviter les pénuries."
+      ],
+      image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600&auto=format&fit=crop',
+    },
   ],
   highlights: [
     {
@@ -380,6 +454,12 @@ const DATA_FR = {
       title: "Podium National",
       description: "3ème place à l'Exposition Nationale Enactus Tunisie 2024 avec Nopaleer.",
       image: '/third-place-in-national-compet-enactus.jpg',
+    },
+    {
+      id: 5,
+      title: "Coaching de Natation",
+      description: "Coach de natation passionné, dédié à l'enseignement de la discipline, de la technique et du travail d'équipe. J'accompagne les athlètes pour repousser leurs limites.",
+      image: '/swimmin-coaching.jpg',
     }
   ],
   images: {
