@@ -9,6 +9,7 @@ import { CookieConsent } from './components/CookieConsent';
 const DATA_EN = {
   name: 'Bechir Guerriche',
   title: 'Business Intelligence Specialist & Data Architect',
+  shortIntro: 'Business Intelligence Specialist, Data Architect, and Full-Stack Software Engineer based in Tunis. Building scalable data systems and performing advanced analytics.',
   email: 'bechirguerriche@gmail.com',
   instagram: '@bechirg',
   linkedin: 'https://linkedin.com/in/guerriche-bechir',
@@ -218,7 +219,7 @@ const DATA_EN = {
     }
   ],
   images: {
-    hero: '/hero-pro.png',
+    hero: '/og-image.jpg',
   },
   ui: {
     intelActive: 'Intelligence Core Active',
@@ -254,6 +255,7 @@ const DATA_EN = {
 const DATA_FR = {
   name: 'Bechir Guerriche',
   title: 'Spécialiste Business Intelligence & Data Architecte',
+  shortIntro: 'Spécialiste en Business Intelligence, Architecte Data et Ingénieur Logiciel Full-Stack basé à Tunis. Création de systèmes robustes et d\'analyses de données.',
   email: 'bechirguerriche@gmail.com',
   instagram: '@bechirg',
   linkedin: 'https://linkedin.com/in/guerriche-bechir',
@@ -463,7 +465,7 @@ const DATA_FR = {
     }
   ],
   images: {
-    hero: '/hero-pro.png',
+    hero: '/og-image.jpg',
   },
   ui: {
     intelActive: 'Noyau Actif',
@@ -538,15 +540,15 @@ export default function App() {
     <div className="min-h-screen bg-brand-bg text-brand-text bg-grid-texture selection:bg-brand-accent selection:text-brand-bg relative overflow-x-hidden flex flex-col font-sans">
       <Helmet>
         <title>{DATA.name} | {DATA.title}</title>
-        <meta name="description" content={DATA.intro} />
+        <meta name="description" content={DATA.shortIntro} />
         <meta name="keywords" content="Portfolio, Software Engineer, Business Intelligence, BI Developer, IA, AI, Entrepreneurship, Coach, Developer, Data Analytics, React, Node.js" />
         <meta property="og:title" content={`${DATA.name} | ${DATA.title}`} />
-        <meta property="og:description" content={DATA.intro} />
+        <meta property="og:description" content={DATA.shortIntro} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={DATA.images.hero} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${DATA.name} | ${DATA.title}`} />
-        <meta name="twitter:description" content={DATA.intro} />
+        <meta name="twitter:description" content={DATA.shortIntro} />
         <meta name="twitter:image" content={DATA.images.hero} />
         <link rel="canonical" href="https://guerriche.dev" />
         <script type="application/ld+json">
@@ -659,7 +661,8 @@ export default function App() {
                 <span className="leading-relaxed">{DATA.title}</span>
               </motion.div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-[5.5rem] leading-[1.1] font-black uppercase tracking-tighter mb-8 text-brand-text relative z-10">
+              <h1 className="sr-only">{DATA.name} - {DATA.title}</h1>
+              <h2 className="text-4xl sm:text-5xl lg:text-[5.5rem] leading-[1.1] font-black uppercase tracking-tighter mb-8 text-brand-text relative z-10">
                 <div className="overflow-hidden py-2">
                   <motion.div initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, type: "spring", bounce: 0.4 }}>
                     {DATA.ui.nextLevel}
@@ -670,7 +673,7 @@ export default function App() {
                     Data <span className="text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-brand-accent-hover select-none">{DATA.ui.dataSystems}</span>
                   </motion.div>
                 </div>
-              </h1>
+              </h2>
               
               <motion.p 
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }}
@@ -796,6 +799,7 @@ export default function App() {
                          <img 
                            src={item.image} 
                            alt={item.title} 
+                           loading="lazy"
                            className="w-full h-full object-contain filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 relative z-0 pointer-events-none" 
                          />
                        )}
@@ -1189,6 +1193,7 @@ const ProjectCard: import('react').FC<{ project: any; index: number; ui: any; on
           <img 
             src={project.image} 
             alt={project.name} 
+            loading="lazy"
             className="w-full h-full object-cover filter grayscale-[100%] group-hover:grayscale-[20%] transition-all duration-700 transform group-hover:scale-[1.02]"
           />
           <div className="absolute top-4 left-4 z-20 px-3 py-1 bg-brand-bg/90 border border-brand-accent/20 text-[10px] font-mono font-bold uppercase text-brand-accent backdrop-blur-md">
